@@ -1,0 +1,111 @@
+// Place all the styles related to the Page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font: 13px Garamond, serif;
+  color: #00675C;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+.inline li {
+  display: inline;
+  margin: 0.5em;
+}
+
+#left {
+width: 50%;
+float: left;
+}
+
+ul {
+list-style-type: circle;
+}
+
+ul#head_bar {
+  list-style-type: circle;
+}
+
+#right {
+width: 50%;
+float: left;
+}
+
+
+
+a:link{color: #006143; text-decoration: none;}
+a:visited{color: #38876F; text-decoration: none;}
+a:hover{color: #FF5900; text-decoration: none;}
+a:active{color: #006143; text-decoration: none;}
+
+#head_bar li {
+  display: inline;
+  margin: 0.2em;
+}
+
+.note {
+  font: bold 15px Garamond, serif;
+}
+
+#image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#image {
+  font: 11px Garamond, serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+#foot_bar li {
+  display: inline;
+}
+
+#header {
+  margin-top: 20px;
+}
+
+#content {
+  font: 12px Garamond, sans-serif;
+  width: 75%;
+  height: 75%;
+  margin: 0 auto;
+}
+
+// From http://konigi.com/tools/css-techniques-horizontal-rules
+hr.faded {
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: 1px;
+  margin: 1.4em 0;
+  border: none; 
+  background: #ddd;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right bottom,
+      color-stop(0, rgb(255,255,255)),
+      color-stop(0.1, rgb(221,221,221)),
+      color-stop(0.9, rgb(221,221,221)),
+      color-stop(1, rgb(255,255,255))
+  );
+  background-image: -moz-linear-gradient(
+      left center,
+      rgb(255,255,255) 0%,
+      rgb(221,221,221) 10%,
+      rgb(221,221,221) 90%,
+      rgb(255,255,255) 100%
+  );
+}

@@ -1,0 +1,139 @@
+<div id="left">
+<h1> Quick Start: Ruby 1.9.3 with RVM (Fedora) </h1>
+<p id="note"> Updated on November 27, 2011 </p>
+<p id="note"> by Cameron Carroll </p>
+</div>
+
+<div id="right">
+<span id="image">
+  <%= image_tag "fedora_dog_small.jpg" %>
+  <center> <%= link_to "Sarah May Scott", 'http://www.everystockphoto.com/photographer.php?photographer_id=68073' %></center>
+</span>
+</div>
+
+<p class="text"> 
+  This is a quick guide to downloading and compiling all of the necessary dependencies and to install Ruby & RVM.
+  The techniques aren't limited to Fedora, but there are slight differences between package names betwixt each package manager.
+</p>
+
+<p class="text"> 
+  I'm working with Fedora 16 x86_64 installed in VMware Workstation. I chose Fedora over Ubuntu or Debian (My initial choices) due to their inherent disabling of gem update --system.
+  If you're a lost soul trying to install Ruby on Windows, I would suggest using <%= link_to 'VMware Workstation', 'http://www.vmware.com/products/workstation/' %> (if available) or the free alternatives, <%= link_to 'MS VirtualPC', 'http://www.microsoft.com/windows/virtual-pc/'%> or <%= link_to 'Sun VirtualBox', 'https://www.virtualbox.org/'%> in order to virtualize a Linux environment instead.
+  If you insist upon using Windows, see <%= link_to 'RubyInstaller', 'http://rubyinstaller.org/' %> or the superset, <%= link_to 'RailsInstaller.', 'http://railsinstaller.org/' %> RVM is not available on Windows, but there is a much less robust tool that frustrated me back into using Linux, <%= link_to 'Pik.', 'https://github.com/vertiginous/pik'%>
+  
+  The relative ease of using Ruby on Linux is immense compared to the overhead of virtualization. Friends don't let friends try to use Ruby on Windows.
+</p>
+
+<p class="note"> Lets begin! </p>
+
+<ol id="guide">
+  <li>Prepare your Linux environment to install a new host Ruby. RVM requires a native Ruby installation for 1.9's, so install that VM image and fire up your terminal.
+  </li>
+  
+  <li>
+    Enter into a temporary directory to compile ruby in:
+    <blockquote>
+      $ mkdir ~/temp <br />
+      $ cd ~/temp <br />
+    </blockquote>
+  </li>
+  
+  <li>
+    Setup sudo:
+    <blockquote>
+      $ su <br />
+      # visudo <br />
+      -- Add this after root entry: YOURACCOUNT ALL=(ALL) [tab] ALL <br />
+      -- Note that visudo will check your syntax before saving, whereas normal vi will not. Always use visudo when possible. <br />
+      # exit <br />
+    </blockquote>
+  </li>
+  
+  <li>
+    Install Git: (Create a new Github repo for otherwise out-of-scope setup guidelines.)
+    <blockquote>
+      $ sudo yum install git <br />
+    </blockquote>
+  </li>
+  
+  <li>
+    Grab some Ruby source. For versions newer than 1.9.3-p0, head over to the <%= link_to 'Ruby download', 'http://www.ruby-lang.org/en/downloads/'%> or otherwise use the current direct curl link:
+    <blockquote>
+      $ curl -O http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p0.tar.gz <br />
+      $ tar -xvzf ruby-1.9.3-p0.tar.gz <br />
+      $ cd ruby-1.9.3-p0 <br />
+    </blockquote>
+  </li>
+  
+  <p class="note">
+    Notes:
+    <ul>
+      <li>You can do some or all of these yum installs at the same time. <br /></li>
+      <li>Resolving dependencies is achieved by doing a ./configure, scanning for any problems or skipped packages, followed by the same procedure for make. (Repeat until clean.) Ruby will compile itself but will skip many essential packages unless you have the proper headers and library installed.<br /></li>
+      <li>I didn't bother trying to get win32 modules installed. If you need them, do the googles. <br /></li>
+    </ul> 
+  </p>
+  
+  <li>
+    Install dependencies for native Ruby:
+    <blockquote>
+      $ sudo yum install ncurses ncurses-devel <br />
+      $ sudo yum install gdbm-devel <br />
+      $ sudo yum install libffi-devel <br />
+      $ sudo yum install openssl-devel <br />
+      $ sudo yum install libyaml libyaml-devel <br />
+      $ sudo yum install readline-devel <br />
+      $ sudo yum install tk tk-devel <br />
+    </blockquote>
+  </li>
+  
+  <li>
+    Finish compiling and installing Ruby:
+    <blockquote>
+      $ ./configure <br />
+      $ make <br />
+      $ sudo make install <br />
+    </blockquote>
+  </li>
+  
+  <li>
+    Install RVM dependencies:
+    <blockquote>
+      $ sudo yum install patch <br />
+      $ sudo yum install bison <br />
+      $ sudo yum install autoconf automake <br />
+    </blockquote>
+  </li>
+
+
+  <li>
+    Install RVM:
+    <blockquote>
+      $ bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+    </blockquote>
+  </li>
+  
+  <li>
+    Install Ruby via RVM, and instruct RVM to load the internal ruby as the default for new shells.
+    <blockquote>
+      $ rvm install ruby-1.9.3-head
+      $ rvm use ruby-1.9.3-head --default
+    </blockquote>
+  </li>
+  </ol>
+  
+  <p class="text">
+    That's it! You now have Ruby 1.9.3 (RVM) running on Ruby 1.9.3 (Native.)
+    <p class="note"> Further Reading: </p>
+    <ul class="inline">
+      <li> <%= link_to image_tag("fedora_logo_small.png"), 'http://fedoraproject.org/wiki/DocsProject' %></li>
+      <li> <%= link_to image_tag("git_logo_small.png"), 'http://git-scm.com/documentation' %></li>
+      <li> <%= link_to image_tag("ruby_logo_small.png"), 'http://ruby-doc.org/' %></li>
+      <li> <%= link_to image_tag("rvm_logo_small.png"), 'http://beginrescueend.com/' %></li> <br />
+      <small> This website is in no way affiliated with or endorsed by the technologies used or logos used. </small>
+    </ul>
+    
+  </p>
+  
+  
+  
