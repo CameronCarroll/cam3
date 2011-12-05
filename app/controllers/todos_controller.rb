@@ -20,19 +20,6 @@ class TodosController < ApplicationController
     end
   end
 
-  def edit
-    @todo = Todo.find(params[:id])
-  end
-
-  def update
-    @todo = Todo.find(params[:id])
-    if @todo.update_attributes(params[:todo])
-      redirect_to @todo, :notice  => "Successfully updated item."
-    else
-      render :action => 'edit'
-    end
-  end
-
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
