@@ -1,0 +1,16 @@
+<% title "Todo" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @todo.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @todo.content %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_todo_path(@todo) %> |
+  <%= link_to "Destroy", @todo, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", todos_path %>
+</p>

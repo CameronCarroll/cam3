@@ -1,4 +1,6 @@
 Cam3::Application.routes.draw do
+  resources :todos
+
   resource :pages
   
   match '/index' => 'page#index'

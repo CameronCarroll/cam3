@@ -1,0 +1,19 @@
+<% title "Todos" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+  <% for todo in @todos %>
+    <tr>
+      <td><%= todo.title %></td>
+      <td><%= todo.content %></td>
+      <td><%= link_to "Show", todo %></td>
+      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
+      <td><%= link_to "Destroy", todo, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Todo", new_todo_path %></p>
