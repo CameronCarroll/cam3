@@ -1,4 +1,7 @@
 class DataController < ApplicationController
+  
+  http_basic_authenticate_with :name => "cameron", :password => "star!craft3"
+  
   # GET /data
   # GET /data.json
   def index
