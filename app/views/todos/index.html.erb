@@ -10,7 +10,7 @@
 <% @todos.each do |todo| %>
   <tr>
     <td><%= todo.name %></td>
-    <td><%= todo.due %></td>
+    <td><%= todo.due.to_date() %></td>
     <td><%= link_to 'Remove This Item', todo, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
