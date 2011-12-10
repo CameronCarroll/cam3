@@ -1,17 +1,23 @@
-<% title "Todos" %>
+<h1>Listing todos</h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Content</th>
+    <th>Name</th>
+    <th>Due</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
-  <% for todo in @todos %>
-   <tr>
-      <td><%= link_to todo.title, todo %></td>
-      <td><%= todo.content %></td>
-      <td><%= link_to "Destroy This Item", todo, :confirm => "Are you sure you want to destroy #{todo.title}?", :method => :delete %></td>
-    </tr>
-  <% end %>
+
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%= todo.name %></td>
+    <td><%= todo.due %></td>
+    <td><%= link_to 'Destroy', todo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
 </table>
 
-<p><%= link_to "Add New Item", new_todo_path %></p>
+<br />
+
+<%= link_to 'New Item', new_todo_path %>

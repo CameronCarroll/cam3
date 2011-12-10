@@ -2,8 +2,8 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: sanarothe
+  database: camdb
   pool: 5
-  username: sanarothe
+  username: cameron
   password: catcat
   timeout: 5000
