@@ -9,6 +9,7 @@ Cam3::Application.routes.draw do
   match '/documents' => 'page#docroot'
   match '/latex' => 'page#texdocs'
   match '/games' => 'page#gamedev'
+  match '/pgsql-quick-start' => 'page#postgre'
   
   root :to => 'page#index'
   

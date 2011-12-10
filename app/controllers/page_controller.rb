@@ -24,4 +24,8 @@ class PageController < ApplicationController
   def resources
     @title = "Useful Resources"
   end
+  
+  def postgre
+    @title = "Quick Start: PostgreSQL 9.1"
+  end
 end
