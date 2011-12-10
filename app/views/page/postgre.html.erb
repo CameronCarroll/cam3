@@ -1,0 +1,40 @@
+<div id="left">
+  <h1>Quick Start: PostgreSQL 9.1 on Fedora</h1>
+  <p id="note"> Updated on December 7, 2011</p>
+  <p id="note"> by Cameron Carroll</p>
+</div>
+
+<div id="right">
+  <span id="image">
+    <%= image_tag "postgre-small.gif" %>
+  </span>
+</div>
+
+<p class="text">
+  This is a quick guide and reference for installing PGSql on Fedora. I didn't previously find this necessary, but due to strange errors on Heroku that don't exist on Local, it might be better to get off of Sqlite.
+</p>
+
+<ol id="guide">
+  <li> Install the server (obvious) and headers (so you can install pg gem)
+    $ sudo yum install postgresql-server postgresql-devel
+  </li>
+  
+  <li> Log into the postgres user account in order to configure the server:
+    $ su
+    $ su postgres
+  </li>
+  
+  <li> Select a location in which to install your database files, and initialize the database. Some examples:
+    $ initdb -D /usr/local/pgsql/data initdb
+    - or -
+    $ initdb -D /var/lib/pgsql/data initdb
+  </li>
+  
+  <li> Start the database server, redirect stderror and stdout, and send to background.
+    $ postgres -D /var/lib/pgsql/data >logfile 2>&1 &
+  </li>
+  
+  <li> 
+    
+  </li>
+</ol>
