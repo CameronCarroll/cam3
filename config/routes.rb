@@ -1,5 +1,7 @@
 Cam3::Application.routes.draw do
   
+  resources :data
+
   resources :todos
 
   resources :pages

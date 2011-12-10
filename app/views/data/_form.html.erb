@@ -1,0 +1,12 @@
+<%= semantic_form_for(@datum, :namespace => 'data_form') do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :strain %>
+    <%= f.input :notes %>
+    <%= f.input :spotdate, :as => :string %>
+    <%= f.input :rating %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

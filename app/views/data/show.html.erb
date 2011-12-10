@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Strain:</b>
+  <%= @datum.strain %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @datum.notes %>
+</p>
+
+<p>
+  <b>Spotdate:</b>
+  <%= @datum.spotdate %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @datum.rating %>
+</p>
+
+
+<%= link_to 'Edit This Record', edit_datum_path(@datum) %> |
+<%= link_to 'Remove This Record', @datum, confirm: 'Are you sure?', method: :delete %> |
+<%= link_to 'Back To List', data_path %>

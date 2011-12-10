@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  strain: MyString
+  notes: MyString
+  spotdate: 2011-12-10 08:21:03
+  rating: 1
+
+two:
+  strain: MyString
+  notes: MyString
+  spotdate: 2011-12-10 08:21:03
+  rating: 1

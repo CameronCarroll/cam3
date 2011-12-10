@@ -11,3 +11,8 @@
 $(document).ready(function(){
   $('#todo_due').datepicker();
 });
+
+$(document).ready(function(){
+  $('#data_form_datum_spotdate').datepicker();
+});
+

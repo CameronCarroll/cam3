@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210120433) do
+ActiveRecord::Schema.define(:version => 20111210162103) do
+
+  create_table "data", :force => true do |t|
+    t.string   "strain"
+    t.string   "notes"
+    t.datetime "spotdate"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "todos", :force => true do |t|
     t.string   "name"
