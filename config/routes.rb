@@ -1,7 +1,8 @@
 Cam3::Application.routes.draw do
+  
   resources :todos
 
-  resource :pages
+  resources :pages
   
   match '/index' => 'page#index'
   match '/ruby-quick-start' => 'page#rubyboot'

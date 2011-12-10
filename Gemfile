@@ -8,7 +8,8 @@ gem 'rails', '3.1.2'
 #gem 'sqlite3'
 gem 'pg'
 
-gem 'nifty-generators'
+gem 'formtastic'
+
 
 
 # Gems used only for assets and not required
