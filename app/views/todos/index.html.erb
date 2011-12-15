@@ -11,7 +11,7 @@
   <tr>
     <td><%= todo.name %></td>
     <% if todo.due %>
-      <td><%= todo.due.to_date() %></td>
+      <td><%= todo.due %></td>
     <% end %>
     <td><%= link_to 'Remove This Item', todo, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

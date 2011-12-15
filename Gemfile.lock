@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/codegram/date_validator.git
+  revision: 9595c04c654f41e926cf5c07fbe68ec9162f377d
+  specs:
+    date_validator (0.6.2)
+      activemodel (>= 3.0.0, < 3.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -115,6 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
+  date_validator!
   execjs
   formtastic
   jquery-rails

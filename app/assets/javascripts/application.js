@@ -8,11 +8,14 @@
 //= require jquery_ujs
 //= require_tree .
 
+
+// Note: dateFormat uses one y for two years, and two y's for four years.
 $(document).ready(function(){
-  $('#todo_due').datepicker();
+  $('#todo_due').datepicker({ dateFormat: 'yy-mm-dd'});
 });
 
+
 $(document).ready(function(){
-  $('#data_form_datum_spotdate').datepicker();
+  $('#data_form_datum_spotdate').datepicker({ dateFormat: 'yy-mm-dd'});
 });
 

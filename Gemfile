@@ -9,6 +9,7 @@ gem 'rails', '3.1.2'
 gem 'pg'
 
 gem 'formtastic'
+gem 'date_validator', :git => 'git://github.com/codegram/date_validator.git'
 
 
 
