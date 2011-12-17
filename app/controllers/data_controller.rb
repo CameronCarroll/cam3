@@ -38,7 +38,7 @@ class DataController < ApplicationController
       redirect_to @datum, notice => "Record updated successfully."
     else
       render :action => "edit"
-     end
+    end
   end
 
   def destroy
