@@ -13,8 +13,8 @@ class PageController < ApplicationController
     @title = "Public Documents - Cameron Carroll"
   end
   
-  def texdocs
-    @title = "LaTeX Reference & Tutorials"
+  def spree1
+    @title = "Spree eCommerce Development: Step 1"
   end
   
   def gamedev

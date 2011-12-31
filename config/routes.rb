@@ -10,7 +10,7 @@ Cam3::Application.routes.draw do
   match '/ruby-quick-start' => 'page#rubyboot'
   match '/resources' => 'page#resources'
   match '/documents' => 'page#docroot'
-  match '/latex' => 'page#texdocs'
+  match '/spree-extension-tutorial' => 'page#spree1'
   match '/games' => 'page#gamedev'
   match '/pgsql-quick-start' => 'page#postgre'
   

@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  
+  http_basic_authenticate_with :name => "cameron", :password => "star!craft3"
 
   def index
     @todos = Todo.all

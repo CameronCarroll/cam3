@@ -1,0 +1,117 @@
+<div id="left">
+  <h1> Spree eCommerce: Extension Tutorial </h1>
+  <p id="note"> Updated on December 29, 2011 </p>
+  <p id="note"> by Cameron Carroll </p>
+</div>
+
+<div id="right">
+  <span id="image">
+    <a href="http://spreecommerce.com/"> <%= image_tag "spree-license.png" %> </a>
+  </span>
+</div>
+
+<p class="text"> 
+  Spree is a "90%" solution to Rails eCommerce. While it functions out-of-the-box, customization to any degree requires some work in rails.
+  The 90% refers to the fact that the last tenth of the way is left up to the person implementing the web app.
+  This tutorial will bring you from installing Spree through implementing a simple extension, which will add a new option to the configuration menu.
+</p>
+
+<p class="text">
+  This tutorial is intended for readers comfortable with Ruby and Rails, and will assume you're running Ruby 1.9.2 or 1.9.3 and Rails 3.1.
+  Lets begin by installing Spree before creating a first extension. You may already have created a Spree application by adding a reference in the gemfile, but installing the Spree gem locally allows you to use the extension generator.
+  As of this writing, the Rubygems version is behind the version I wish to use, so I build the gem from source. Check to see whether you can just use a 'gem install spree.'
+</p>
+
+<ol id="guide">
+  <li>
+    <p>
+      In order to install Spree, we're going to grab the latest source from github and build the gem manually. Grab the entire Spree repository and check out the version you would like to install.
+      This may either be the latest tagged branch, or a particular branch that the rest of your application may be using.
+      Then prepare the dependency bundle and use the rake tasks to build and install the gem. Note that you may have to install some dependencies in order to perform the bundle install; I had to install libffi.   
+    </p>
+    <p class="code">
+      $ git clone git://github.com/spree/spree.git <br />
+      $ git checkout v1.0.0.rc1 <br />
+      $ bundle install <br />
+      $ bundle exec rake clean <br />
+      $ bundle exec rake gem:install <br />
+      $ spree -v <br />
+  </li>
+  
+  <p class="note">
+    You can install Spree from the RubyGems sources, but you're not guaranteed to get the version that you want. All versions are available from Github, but only the "most stable" (or really, the older) versions are on RubyGems.
+  </p>
+  
+  <li>
+    <p>
+      With the Spree gem installed, lets go ahead and create two new Rails engines: One as a test app for integrating extensions, and a second to serve as the extension itself.
+      Creating the test application is easily done by following the <a href="http://edgeguides.spreecommerce.com/getting_started.html">Spree Getting Started Guide.</a> The instructions there are more detailed, so I will only go over the procedure briefly.
+      We simply create a new rails application and install the Spree gem (from source.) Once the Spree gem is installed, you can use its installation generator to transform your blank rails application into a blank spree application.
+      After performing the migrations, you can go ahead and start the web server and play around with the blank application. A very brief introduction to the Spree front and backend can be found in the aforementioned getting started guide, at the very bottom.
+    </p>
+    <p class="code">
+      $ rails new blank_spree_app <br />
+      $ cd blank_spree_app <br />
+      --> Add gem 'spree', :git => 'git://github.com/spree/spree.git' to gemfile <br />
+      $ bundle install <br />
+      $ bundle exec rake db:create <br />
+      $ rails g spree:install <br />
+      $ bundle exec rake db:migrate <br />
+    </p>
+  </li>
+  
+  <li>
+    <p>
+      Next we have to create the extension project. The <a href="http://edgeguides.spreecommerce.com/creating_extensions.html">documentation can be found here.</a>
+      A Spree extension can be created either inside of the test application, or as a standalone project. I prefer to keep it as a standalone, but remember that you can also execute the same command inside of a host Spree app to create a standalone extension.
+      First we use the Spree executable to create a new extension and then use the included rake task to generate the 'test app,' which allows running tests or generators inside of the extension. See the documentation for details regarding integrated apps.
+    </p>
+    <p class="code">
+      $ spree extension spree_extension <br />
+      $ bundle install <br />
+      $ rake test_app <br />
+    </p>
+  </li>
+  
+  <li>
+    <p>
+      The final task in setting up your extension development environment is to include the extension into your test application and import any migrations.
+      Note that any database migrations you produce must be copied to the host application using the rake task, and then migrated from there.
+      While developing your extension, you must 'bundle install' every time you want a change to show up in the host application. 
+   </p>
+    <p class="code">
+      --> Add to gemfile of test app: gem 'spree_extension', :path => 'path/to/your/extension/on/local/drive' <br />
+      $ bundle install <br />
+    </p>
+    <p class="note">
+     When your extension produces database migrations, two new commands are required to install: <br />
+     <p class="code">
+        $ rake spree_extension:install:migrations <br />
+        $ rake db:migrate <br />
+     </p>
+    </p>
+  </li>
+  
+  <p class="note">
+    Now that we have a development environment set up and ready to go, we can begin working. 
+  </p>
+  
+  <li>
+    <p>
+      The first step I like to tackle in creating an extension is creating the interface skeleton for it. Ideas seem to flow a lot more easily when you don't have a whole pile of prep-work before embarking upon your adventure.
+      Spree uses a library called <a href="https://github.com/railsdog/deface"> Deface </a> to target "data hooks" or specific HTML elements and modify the page at that point. This provides an extremely powerful method of altering the Spree interface, as almost anything can be targeted and overriden/modified.
+      Deface is one of two tools used to achieve customization in Spree. The second is file overriding: Any file from the Spree gem will be overriden by a similarly named file in your own tree. This allows you to replace entire swaths of the application, rather than just loading tiny bits in at a time.
+    </p>
+    <p>
+      This extension requires an item in the configuration menu list, inside of the administration interface. There are a few components required to inject this item in: First, a Deface override file. Second, a partial which houses the code to inject. Finally, we need somewhere to send the user, so we have to create a new page.
+      Lets begin by creating the destination: In my extension, this is a set of pages that allow the user to add zipcodes or cities to the system, and to define where their business has 'nexus.' But these details lie outside the scope of this tutorial.
+      Lets make a 'Hello World' resource instead. 
+    </p>
+    <p class="code">
+      
+    </p>
+  </li>
+  
+  
+
+</ol>

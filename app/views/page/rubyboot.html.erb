@@ -32,37 +32,37 @@
   
   <li>
     Enter into a temporary directory to compile ruby in:
-    <blockquote>
+    <p class="code">
       $ mkdir ~/temp <br />
       $ cd ~/temp <br />
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Setup sudo:
-    <blockquote>
+    <p class="code">
       $ su <br />
       # visudo <br />
       -- Add this after root entry: YOURACCOUNT ALL=(ALL) [tab] ALL <br />
       -- Note that visudo will check your syntax before saving, whereas normal vi will not. Always use visudo when possible. <br />
       # exit <br />
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Install Git: (Create a new Github repo for otherwise out-of-scope setup guidelines.)
-    <blockquote>
+    <p class="code">
       $ sudo yum install git <br />
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Grab some Ruby source. For versions newer than 1.9.3-p0, head over to the <%= link_to 'Ruby download', 'http://www.ruby-lang.org/en/downloads/'%> or otherwise use the current direct curl link:
-    <blockquote>
+    <p class="code">
       $ curl -O http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p0.tar.gz <br />
       $ tar -xvzf ruby-1.9.3-p0.tar.gz <br />
       $ cd ruby-1.9.3-p0 <br />
-    </blockquote>
+    </p>
   </li>
   
   <p class="note">
@@ -76,7 +76,7 @@
   
   <li>
     Install dependencies for native Ruby:
-    <blockquote>
+    <p class="code">
       $ sudo yum install ncurses ncurses-devel <br />
       $ sudo yum install gdbm-devel <br />
       $ sudo yum install libffi-devel <br />
@@ -84,41 +84,41 @@
       $ sudo yum install libyaml libyaml-devel <br />
       $ sudo yum install readline-devel <br />
       $ sudo yum install tk tk-devel <br />
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Finish compiling and installing Ruby:
-    <blockquote>
+    <p class="code">
       $ ./configure <br />
       $ make <br />
       $ sudo make install <br />
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Install RVM dependencies:
-    <blockquote>
+    <p class="code">
       $ sudo yum install patch <br />
       $ sudo yum install bison <br />
       $ sudo yum install autoconf automake <br />
-    </blockquote>
+    </p>
   </li>
 
 
   <li>
     Install RVM:
-    <blockquote>
+    <p class="code">
       $ bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
-    </blockquote>
+    </p>
   </li>
   
   <li>
     Install Ruby via RVM, and instruct RVM to load the internal ruby as the default for new shells.
-    <blockquote>
+    <p class="code">
       $ rvm install ruby-1.9.3-head
       $ rvm use ruby-1.9.3-head --default
-    </blockquote>
+    </p>
   </li>
   </ol>
   
