@@ -9,13 +9,13 @@
 
 <% @data.each do |datum| %>
   <tr>
-    <td><%= link_to datum.strain, datum %></td>
-    <% if datum.spotdate %>
+      <td><%= link_to datum.strain, datum %></td>
+      <% if datum.spotdate %>
       <td><%= datum.spotdate.to_date() %></td>  
-    <% end %>
+      <% end %>
       
-    <td><%= datum.rating %></td>
-    <td><%= link_to 'Edit', edit_datum_path(datum) %></td>
+      <td><%= datum.rating %></td>
+      <td><%= link_to 'Edit', edit_datum_path(datum) %></td>
   </tr>
 <% end %>
 </table>

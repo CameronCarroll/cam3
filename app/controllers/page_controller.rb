@@ -28,4 +28,8 @@ class PageController < ApplicationController
   def postgre
     @title = "Quick Start: PostgreSQL 9.1"
   end
+  
+  def random
+    @title = "Various Projects"
+  end
 end

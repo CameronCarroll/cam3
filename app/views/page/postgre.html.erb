@@ -1,7 +1,7 @@
 <div id="head_container">
 <div id="left">
   <h1>Quick Start: PostgreSQL 9.1 on Fedora</h1>
-  <p id="note"> Updated on December 7, 2011</p>
+  <p id="note"> Updated on March 3, 2012</p>
   <p id="note"> by Cameron Carroll</p>
 </div>
 
@@ -12,42 +12,81 @@
 </div>
 </div>
 
-
-<div id="right">
-  <ul id="guide">
-    <li> 
-      $ sudo yum install postgresql-server postgresql-devel<br />
-    </li>
-  </ul>
-</div>
-
-<div id="left">
 <p class="text">
-  This is a quick guide and reference for installing PGSql on Fedora. I didn't previously find this necessary, but due to strange errors on Heroku that don't exist on Local, it might be better to get off of Sqlite.
+  This is a quick guide and reference for installing PGSql 9.1 on Fedora 16. I didn't previously find this necessary, but due to strange errors on Heroku that don't exist on Local, it might be better to get off of Sqlite.
+  This can easily apply to most any Linux distribution, as long as you double-check all the paths and packages.
+  I don't cover hardening, security, or any of that goodness; This guide will only take you through setting up a development server.
 </p><br />
 
 <ol id="guide">
-  <li> Install the server (obvious) and headers (so you can install pg gem)<br />
-    $ sudo yum install postgresql-server postgresql-devel<br />
+  <li> Install the server and headers using yum: <br />
+    <p class="code">
+     $ sudo yum install postgresql-server postgresql-devel<br />
+    </p>
   </li>
   
-  <li> Log into the postgres user account in order to configure the server:
-    $ su<br />
-    $ su postgres<br />
+  <li> <h4> Configuring Postgres </h4>
+    Log into the postgres user account in order to configure the server: <br />
+    <p class="code">
+     $ su<br />
+     $ su postgres<br />
+    </p>
+    Select a location in which to install your database files, and initialize the database. Some examples:
+    <p class="code">
+      $ initdb -D /usr/local/pgsql/data initdb<br />
+      - or -<br />
+      $ initdb -D /var/lib/pgsql/data initdb<br />
+    </p>
   </li>
   
-  <li> Select a location in which to install your database files, and initialize the database. Some examples:
-    $ initdb -D /usr/local/pgsql/data initdb<br />
-    - or -<br />
-    $ initdb -D /var/lib/pgsql/data initdb<br />
+  <li> <h4> Starting Postgres Manually</h4>
+      Start the database server, redirect stderror and stdout, and send to background.
+      Or use the handy pg_ctl script to simplify this a bit, but not necessarily shorten. <br />
+    <p class="code">
+      $ postgres -D /var/lib/pgsql/data >logfile 2>&1 &<br />
+      - or - <br/ >
+      $ pg_ctl start -l /var/lib/pgsql/logfile -D /var/lib/pgsql/data
+    </p>
   </li>
   
-  <li> Start the database server, redirect stderror and stdout, and send to background.<br />
-    $ postgres -D /var/lib/pgsql/data >logfile 2>&1 &<br />
+  <li> <h4> Starting Postgres Automatically on Boot </h4>
+    Add the following line to your rc.local (fedora & friends) or other system startup script to start pgsql on boot: <br />
+    <p class="code">
+      /usr/bin/pg_ctl start -l /var/lib/pgsql/logfile -D /var/lib/pgsql/data
+    </p>
   </li>
   
-  <li> 
+  <li> <h4> Adding & Privileging an Account </h4>
+    We need a database superuser to add a new account, so you're going to have to log back into postgres.
+    Once at the postgres bash, open up psql (postgres command line) and use the createuser wrapper to create your account.
     
+    <p class="code">
+      $ su <br />
+      $ su postgres <br />
+      $ psql <br />
+      $ createuser -P [username] <br/>
+      $ ALTER ROLE [username] WITH login <br/ >
+      $ ALTER ROLE [username] WITH createdb <br />
+    </p>
   </li>
 </ol>
-</div>
+
+<p class="note">
+  Postgres SQL should be running and ready to accept connections via the account you just created.
+  This setup is enough to develop your applications against, and is an acceptable stopping point for anyone that doesn't have to concern themselves with security.
+  <br /> <br />
+  Some further reading: <br />
+</p>
+
+<ul> 
+  <li> <%= link_to 'Postgres Wiki: Tutorials', 'http://wiki.postgresql.org/wiki/PostgreSQL_Tutorials' %></li>
+  <li> <%= link_to 'PostgreSQL: Introduction and Concepts (free ebook)', 'http://zid-luxinst.uibk.ac.at/postgresql/aw_pgsql_book.pdf' %>
+</ul>
+
+<p class="note">
+  You may also be interested in: <br />
+</p>
+<ul>
+  <li> <%= link_to 'Ruby 1.9.3 Quickstart', '/ruby-quick-start' %></li>
+</ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             																											=

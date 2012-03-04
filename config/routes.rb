@@ -13,6 +13,7 @@ Cam3::Application.routes.draw do
   match '/spree-extension-tutorial' => 'page#spree1'
   match '/games' => 'page#gamedev'
   match '/pgsql-quick-start' => 'page#postgre'
+  match '/random' => 'page#random'
   
   root :to => 'page#index'
   
