@@ -13,8 +13,12 @@ class PageController < ApplicationController
     @title = "Public Documents - Cameron Carroll"
   end
   
-  def spree1
-    @title = "Spree eCommerce Development: Step 1"
+  def spree0
+    @title = "Spree eCommerce Development: Step 0"
+  end
+  
+  def spreeref
+    @title ="Integrating Spree and Refinery using Rails Engines"
   end
   
   def gamedev

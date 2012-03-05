@@ -1,6 +1,6 @@
 <div id="left">
-  <h1> Spree eCommerce: Extension Tutorial </h1>
-  <p id="note"> Updated on December 29, 2011 </p>
+  <h2> Spree eCommerce Extension Tutorial: Part 0 </h2>
+  <p id="note"> Updated on March 4, 2012 </p>
   <p id="note"> by Cameron Carroll </p>
 </div>
 
@@ -10,24 +10,25 @@
   </span>
 </div>
 <br />
-<b> Notice: This tutorial is unfinished; When I get time, I'll update it for Spree 1.0 </b>
 
 <p class="text"> 
   Spree is a "90%" solution to Rails eCommerce. While it functions out-of-the-box, customization to any degree requires some work in rails.
   The 90% refers to the fact that the last tenth of the way is left up to the person implementing the web app.
-  This tutorial will bring you from installing Spree through implementing a simple extension, which will add a new option to the configuration menu.
+  This 'part 0' tutorial is to get your development environment ready for Spree.
+  (Note that parts 1+ aren't written yet. I'm currently working on integrating Spree/Refinery though, so look out for that one soon.)
 </p>
 
 <p class="text">
-  This tutorial is intended for readers comfortable with Ruby and Rails, and will assume you're running Ruby 1.9.2 or 1.9.3 and Rails 3.1.
+  This tutorial is intended for readers comfortable with Ruby and Rails, and will assume you're running Ruby 1.9+ and Rails 3.1+.
   Lets begin by installing Spree before creating a first extension. You may already have created a Spree application by adding a reference in the gemfile, but installing the Spree gem locally allows you to use the extension generator.
-  As of this writing, the Rubygems version is behind the version I wish to use, so I build the gem from source. Check to see whether you can just use a 'gem install spree.'
+  You can either build the gem from the source, or do a gem install. As of this writing, 'gem install spree' wasn't working, so I had to get 'gem install spree_cmd' as suggested in the <%= link_to 'README', 'https://github.com/spree/spree' %>
 </p>
 
 <ol id="guide">
   <li>
     <p>
-      In order to install Spree, we're going to grab the latest source from github and build the gem manually. Grab the entire Spree repository and check out the version you would like to install.
+      <b> (Optional) -- If you want edge Spree and Rubygems is behind, install from source: </b>
+      Grab the entire Spree repository and check out the version you would like to install.
       This may either be the latest tagged branch, or a particular branch that the rest of your application may be using.
       Then prepare the dependency bundle and use the rake tasks to build and install the gem. Note that you may have to install some dependencies in order to perform the bundle install; I had to install libffi.   
     </p>
@@ -95,25 +96,7 @@
   </li>
   
   <p class="note">
-    Now that we have a development environment set up and ready to go, we can begin working. 
+    Now that we have a development environment set up and ready to go, we can begin working. Stay tuned for Part 1, where we will add a simple configuration page to the administration interface. 
   </p>
   
-  <li>
-    <p>
-      The first step I like to tackle in creating an extension is creating the interface skeleton for it. Ideas seem to flow a lot more easily when you don't have a whole pile of prep-work before embarking upon your adventure.
-      Spree uses a library called <a href="https://github.com/railsdog/deface"> Deface </a> to target "data hooks" or specific HTML elements and modify the page at that point. This provides an extremely powerful method of altering the Spree interface, as almost anything can be targeted and overriden/modified.
-      Deface is one of two tools used to achieve customization in Spree. The second is file overriding: Any file from the Spree gem will be overriden by a similarly named file in your own tree. This allows you to replace entire swaths of the application, rather than just loading tiny bits in at a time.
-    </p>
-    <p>
-      This extension requires an item in the configuration menu list, inside of the administration interface. There are a few components required to inject this item in: First, a Deface override file. Second, a partial which houses the code to inject. Finally, we need somewhere to send the user, so we have to create a new page.
-      Lets begin by creating the destination: In my extension, this is a set of pages that allow the user to add zipcodes or cities to the system, and to define where their business has 'nexus.' But these details lie outside the scope of this tutorial.
-      Lets make a 'Hello World' resource instead. 
-    </p>
-    <p class="code">
-      
-    </p>
-  </li>
-  
-  
-
 </ol>

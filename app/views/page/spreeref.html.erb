@@ -1,0 +1,51 @@
+<div id="left">
+  <h1> Spree eCommerce: Integration with Refinery CMS </h1>
+  <p id="note"> Updated on March 4, 2012 </p>
+  <p id="note"> by Cameron Carroll </p>
+</div>
+
+<div id="right">
+  <span id="image">
+    <%= image_tag 'kiss.jpg' %>
+  </span>
+</div>
+
+<div id="left">
+  <p class="text">
+    Recently, my Spree project's goals shifted to include the need for a CMS. Yesterday, a beacon of light came shining through the fog of code: Refinery now available as a Rails engine in 2.0.
+    Spree recently finished their own engine-ification and namespacing effort. Lets skip the obvious and get started.
+  </p>
+</div>
+
+<ol id="guide">
+  <li> 
+    <p>
+      First, lets create a blank Rails project to add Spree and Refinery to. If you already have an app, you can go ahead and use that... just keep in mind that there may be more conflicts.
+      
+    </p>
+    <p class="code">
+      # workaround from thread below
+# config/initializers/will_paginate.rb
+if defined?(WillPaginate)
+  module WillPaginate
+    module ActiveRecord
+      module RelationMethods
+        alias_method :per, :per_page
+        alias_method :num_pages, :total_pages
+      end
+    end
+  end
+end
+# https://github.com/mislav/will_paginate/issues/174
+
+Steps:
+
+1. Created a new rails project, set up database.
+2. New topic branch, install refinery
+3. New topic branch, install spree
+4. New integration branch, merge the two together
+5. ???
+6. Profit
+    </p>
+  </li>
+</ol>
