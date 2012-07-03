@@ -7,7 +7,7 @@ Cam3::Application.routes.draw do
   resources :pages
   
   match '/index' => 'page#index'
-  match '/ruby-quick-start' => 'page#rubyboot'
+  match '/ruby-quick-start' => redirect("http://ckcarroll.herokuapp.com/log/ruby/rubyboot")
   match '/resources' => 'page#resources'
   match '/documents' => 'page#docroot'
   match '/spreetutorial/step-0' => 'page#spree0'
